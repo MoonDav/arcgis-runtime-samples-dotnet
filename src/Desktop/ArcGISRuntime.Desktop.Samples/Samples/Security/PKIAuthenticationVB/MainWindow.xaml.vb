@@ -10,13 +10,14 @@
 Option Strict On
 Imports System.Security.Cryptography.X509Certificates
 Imports System.Text
+Imports Esri.ArcGISRuntime.Controls
 Imports Esri.ArcGISRuntime.Mapping
 Imports Esri.ArcGISRuntime.Portal
 Imports Esri.ArcGISRuntime.Security
 
 Class MainWindow
     'TODO - Add the URL for your PKI-secured portal
-    Const SecuredPortalUrl As String = ""
+    Const SecuredPortalUrl As String = "https://portalpkiqa.ags.esri.com/sharing/rest"
 
     'TODO - Add the URL for a portal containing public content (ArcGIS Organization, e.g.)
     Const PublicPortalUrl As String = "http://esrihax.maps.arcgis.com/sharing/rest"
@@ -42,9 +43,11 @@ Class MainWindow
         Dim credenshul As Credential = Nothing
 
         Try
-            ' Use the X509Store to get a collection of available certificates
+            ' Open the X509Store to get a collection certificates
             Dim store = New X509Store(StoreName.My, StoreLocation.CurrentUser)
             store.Open(OpenFlags.ReadOnly)
+
+            ' Get the currently valid certificates for the current user
             Dim certificates = store.Certificates.Find(X509FindType.FindByTimeValid, DateTime.Now, True)
 
             ' Prompt the user to select a certificate
@@ -174,10 +177,10 @@ Class MainWindow
             Dim portalItem As ArcGISPortalItem = Await ArcGISPortalItem.CreateAsync(portal, itemId)
 
             ' Create a Map from the portal item (all items in the list represent web maps)
-            Dim webMap As Map = New Map(portalItem)
+            'Dim webMap As Map = New Map(portalItem)
 
-            ' Display the Map in the map view
-            MyMapView.Map = webMap
+            '' Display the Map in the map view
+            'MyMapView.Map = webMap
 
             ' Report success
             messageBuilder.AppendLine("Successfully loaded web map from item #" + itemId + " from " + portal.Uri.Host)
