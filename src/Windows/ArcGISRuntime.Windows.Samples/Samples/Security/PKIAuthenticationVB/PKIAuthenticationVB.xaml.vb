@@ -20,7 +20,7 @@ Public NotInheritable Class MainPage
     Inherits Page
 
     'TODO - Add the URL for your PKI-secured portal
-    Const SecuredPortalUrl As String = "https://portalpkiqa.ags.esri.com/sharing/rest"
+    Const SecuredPortalUrl As String = "https://my.secure.server.com/sharing/rest"
 
     'TODO - Add the URL for a portal containing public content (ArcGIS Organization, e.g.)
     Const PublicPortalUrl As String = "http://esrihax.maps.arcgis.com/sharing/rest"
