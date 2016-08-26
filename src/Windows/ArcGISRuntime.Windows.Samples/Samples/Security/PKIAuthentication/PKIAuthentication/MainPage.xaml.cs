@@ -26,7 +26,7 @@ namespace PKIAuthentication
         //TODO - Create a client certificate (*.pfx) and add it to a folder accessible to the app
 
         //TODO - Add the URL for your PKI-secured portal
-        const string SecuredPortalUrl = "https://portalpkiqa.ags.esri.com/sharing/rest";
+        const string SecuredPortalUrl = "https://my.secure.server.com/sharing/rest";
 
         //TODO - Add the URL for a portal containing public content (ArcGIS Organization, e.g.)
         const string PublicPortalUrl = "http://esrihax.maps.arcgis.com/sharing/rest";
