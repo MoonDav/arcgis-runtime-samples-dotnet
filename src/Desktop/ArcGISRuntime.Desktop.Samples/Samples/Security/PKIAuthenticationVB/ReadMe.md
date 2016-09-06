@@ -1,9 +1,8 @@
 ##PKI Authentication - Desktop##
 
 This sample illustrates the use of a client certificate to access services hosted on a portal secured with Public Key Infrastructure (PKI) authentication.
-Credentials are loaded by the app using an exported certificate (.pfx) that you create and include with the app. After loading the certificate, requests
-to the portal can be encrypted and decrypted using public key cryptography. The portal can then be searched for hosted items, such as web maps, to include
-in your app. Once it's loaded, the app will retain the certificate until the app is uninstalled.     
+Credentials are created by prompting the user to select a client certificate installed on the local machine. After loading the certificate, requests
+to the portal can be encrypted and decrypted using public key cryptography. The portal can then be searched for web maps to display in the map view.    
      
 More information about PKI and client certificates can be found at the links below:
  - [PKI - MSDN](https://msdn.microsoft.com/en-us/library/windows/desktop/bb427432(v=vs.85).aspx)
@@ -12,11 +11,7 @@ More information about PKI and client certificates can be found at the links bel
 
 ###You will need###
  - Access to a portal secured with PKI authentication.
- - A certificate that grants you access to the above portal.
- - A Personal Information Exchange (.pfx) file containing the certificate information (can be exported from the certificate).
+ - A certificate that grants access to the above portal (installed in the current user's certificate store).
 
 ###Project requirements###
- - Your .pfx file (certificate) must be added to the project's "Certificates" folder.
- - The "CertificateFileName" variable (top of PKIAuthenticationVB.xaml.vb) must be updated with the name of the .pfx file.
  - The "SecuredPortalUrl" variable must be updated with a URL that points to your PKI-secured portal.
-
