@@ -111,7 +111,26 @@
             {
               "SampleName": "ChangeSublayerVisibility",
               "Path": "Samples/Layers/ChangeSublayerVisibility"
-            } 
+            }
+          ]
+        },
+        {
+          "Name": "Feature Layers",
+          "SubCategoryName": "FeatureLayer",
+          "ShowGroup": true,
+          "SampleInfos": [
+            {
+              "SampleName": "CreateFeatureCollectionLayer",
+              "Path": "Samples/Layers/CreateFeatureCollectionLayer"
+            },
+            {
+              "SampleName": "FeatureCollectionLayerFromQuery",
+              "Path": "Samples/Layers/FeatureCollectionLayerFromQuery"
+            },
+            {
+              "SampleName": "FeatureLayerCollectionFromPortal",
+              "Path": "Samples/Layers/FeatureLayerCollectionFromPortal"
+            }
           ]
         }
       ]
