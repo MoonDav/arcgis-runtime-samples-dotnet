@@ -48,13 +48,13 @@ namespace ArcGISRuntime.Desktop.Samples.DisplayDrawingStatus
             MyMapView.Map = myMap;
         }
 
-        private void OnDrawStatusChanged(object sender, DrawStatus e)
+        private void OnDrawStatusChanged(object sender, DrawStatusChangedEventArgs e)
         {
             // Update the load status information
             Dispatcher.Invoke(delegate ()
             {
                 // Show the activity indicator if the map is drawing
-                if (e == DrawStatus.InProgress)
+                if (e.Status == DrawStatus.InProgress)
                 {
                     activityIndicator.IsEnabled = true;
                     activityIndicator.Visibility = System.Windows.Visibility.Visible;

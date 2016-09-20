@@ -14,6 +14,7 @@ Imports Esri.ArcGISRuntime.Mapping
 Imports Esri.ArcGISRuntime.UI
 Imports System.Windows
 Imports System.Windows.Media
+Imports Esri.ArcGISRuntime.UI.Controls
 
 Namespace FeatureLayerSelection
     Partial Public Class FeatureLayerSelectionVB

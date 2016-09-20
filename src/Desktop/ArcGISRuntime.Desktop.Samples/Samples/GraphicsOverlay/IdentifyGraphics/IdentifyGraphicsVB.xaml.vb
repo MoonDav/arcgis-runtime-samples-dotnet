@@ -13,6 +13,7 @@ Imports Esri.ArcGISRuntime.Symbology
 Imports Esri.ArcGISRuntime.UI
 Imports System.Windows
 Imports System.Windows.Media
+Imports Esri.ArcGISRuntime.UI.Controls
 
 Namespace IdentifyGraphics
 
@@ -82,7 +83,9 @@ Namespace IdentifyGraphics
             Dim identifyResults As IReadOnlyList(Of Graphic) = Await MyMapView.IdentifyGraphicsOverlayAsync(
                 _polygonOverlay,
                 e.Position,
-                tolerance, maximumResults)
+                tolerance,
+                Esri.ArcGISRuntime.Data.IdentifyReturns.PopupsOnly,
+                maximumResults)
 
             ' Check if we got results
             If identifyResults.Count > 0 Then

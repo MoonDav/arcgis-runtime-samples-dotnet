@@ -42,11 +42,11 @@ Namespace DisplayDrawingStatus
             MyMapView.Map = myMap
         End Sub
 
-        Private Sub OnDrawStatusChanged(sender As Object, e As DrawStatus)
+        Private Sub OnDrawStatusChanged(sender As Object, e As DrawStatusChangedEventArgs)
             ' Update the load status information
             ' Show the activity indicator if the map is drawing
             Dispatcher.Invoke(Sub()
-                                  If e = DrawStatus.InProgress Then
+                                  If e.Status = DrawStatus.InProgress Then
                                       activityIndicator.IsEnabled = True
                                       activityIndicator.Visibility = System.Windows.Visibility.Visible
                                   Else

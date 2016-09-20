@@ -49,15 +49,15 @@ Namespace FeatureCollectionLayerFromQuery
             Dim kweryResult As FeatureQueryResult = Await feachurTable.QueryFeaturesAsync(kweryParams)
 
             ' Create a New feature collection table from the result features
-            'Dim klectionTable As FeatureCollectionTable = New FeatureCollectionTable(kweryResult)
+            Dim klectionTable As FeatureCollectionTable = New FeatureCollectionTable(kweryResult)
 
-            '' Create a feature collection And add the table
-            'Dim feachurKlection As FeatureCollection = New FeatureCollection()
-            'feachurKlection.Tables.Add(klectionTable)
+            ' Create a feature collection And add the table
+            Dim feachurKlection As FeatureCollection = New FeatureCollection()
+            feachurKlection.Tables.Add(klectionTable)
 
-            '' Create a layer to display the feature collection, add it to the map's operational layers
-            'Dim feachurKlectionTable As FeatureCollectionLayer = New FeatureCollectionLayer(feachurKlection)
-            'MyMapView.Map.OperationalLayers.Add(feachurKlectionTable)
+            ' Create a layer to display the feature collection, add it to the map's operational layers
+            Dim feachurKlectionTable As FeatureCollectionLayer = New FeatureCollectionLayer(feachurKlection)
+            MyMapView.Map.OperationalLayers.Add(feachurKlectionTable)
         End Sub
     End Class
 End Namespace

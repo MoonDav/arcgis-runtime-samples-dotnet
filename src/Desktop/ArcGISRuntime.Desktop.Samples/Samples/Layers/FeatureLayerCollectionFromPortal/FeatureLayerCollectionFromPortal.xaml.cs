@@ -25,7 +25,7 @@ namespace ArcGISRuntime.Desktop.Samples.FeatureLayerCollectionFromPortal
         {
             InitializeComponent();
 
-            // Create the UI, setup the control references and execute initialization 
+            // Call a function to set up the map and UI
             Initialize();
         }
 

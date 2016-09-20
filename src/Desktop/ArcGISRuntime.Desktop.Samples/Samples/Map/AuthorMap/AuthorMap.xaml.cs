@@ -116,7 +116,7 @@ namespace ArcGISRuntime.Desktop.Samples.AuthorMap
                 myMap.InitialViewpoint = MyMapView.GetCurrentViewpoint(ViewpointType.BoundingGeometry);
 
                 // See if the map has already been saved (has an associated portal item)
-                if (myMap.PortalItem == null)
+                if (myMap.ArcGISItem == null)
                 {
                     // Get information for the new portal item
                     var title = TitleTextBox.Text;
@@ -141,7 +141,7 @@ namespace ArcGISRuntime.Desktop.Samples.AuthorMap
                     await myMap.SaveAsync();
 
                     // Report update was successful
-                    MessageBox.Show("Saved changes to '" + myMap.PortalItem.Title + "'", "Updates Saved");
+                    MessageBox.Show("Saved changes to '" + myMap.ArcGISItem.Title + "'", "Updates Saved");
                 }
 
                 // Update the portal item thumbnail with the current map image
@@ -302,13 +302,13 @@ namespace ArcGISRuntime.Desktop.Samples.AuthorMap
             try
             {
                 // Get the map's portal item
-                ArcGISPortalItem newPortalItem = MyMapView.Map.PortalItem;
+                PortalItem newPortalItem = MyMapView.Map.ArcGISItem as PortalItem;
 
                 // Open the image file
                 var thumbnailData = new FileStream(thumbnailImagePath, FileMode.Open);
 
                 // Create a new ArcGISPortalItemContent object to contain the thumbnail
-                ArcGISPortalItemContent portalItemContent = new ArcGISPortalItemContent();
+                ItemContent portalItemContent = new ItemContent();
 
                 // Assign the thumbnail data (file stream) to the content object
                 portalItemContent.Thumbnail = thumbnailData;

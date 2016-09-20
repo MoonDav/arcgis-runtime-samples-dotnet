@@ -13,6 +13,7 @@ Imports Esri.ArcGISRuntime.Data
 Imports Esri.ArcGISRuntime.Geometry
 Imports Esri.ArcGISRuntime.Mapping
 Imports Esri.ArcGISRuntime.UI
+Imports Esri.ArcGISRuntime.UI.Controls
 Imports Windows.UI
 Imports Windows.UI.Popups
 

@@ -44,11 +44,11 @@ Namespace DisplayDrawingStatus
             MyMapView.Map = myMap
         End Sub
 
-        Private Async Sub OnDrawStatusChanged(sender As Object, e As DrawStatus)
+        Private Async Sub OnDrawStatusChanged(sender As Object, e As DrawStatusChangedEventArgs)
             ' Update the load status information
             Await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, Function()
                                                                          ' Show the activity indicator if the map is drawing
-                                                                         If e = DrawStatus.InProgress Then
+                                                                         If e.Status = DrawStatus.InProgress Then
                                                                              activityIndicator.IsActive = True
                                                                          Else
                                                                              activityIndicator.IsActive = False

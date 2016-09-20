@@ -49,8 +49,8 @@ namespace ArcGISRuntime.Windows.Samples.DisplayDeviceLocation
         private void OnStopClicked(object sender, RoutedEventArgs e)
         {
             //TODO Remove this IsStarted check https://github.com/Esri/arcgis-runtime-samples-xamarin/issues/182
-            if (MyMapView.LocationDisplay.IsStarted)
-                MyMapView.LocationDisplay.Stop();
+            if (MyMapView.LocationDisplay.Started)
+                MyMapView.LocationDisplay.IsEnabled = false;
 
             locationModes.SelectedItem = null;
         }
@@ -72,8 +72,8 @@ namespace ArcGISRuntime.Windows.Samples.DisplayDeviceLocation
                     MyMapView.LocationDisplay.AutoPanMode = LocationDisplayAutoPanMode.Off;
 
                     //TODO Remove this IsStarted check https://github.com/Esri/arcgis-runtime-samples-xamarin/issues/182
-                    if (!MyMapView.LocationDisplay.IsStarted)
-                        MyMapView.LocationDisplay.Start();
+                    if (!MyMapView.LocationDisplay.Started)
+                        MyMapView.LocationDisplay.IsEnabled = true;
                     break;
 
                 case 1:
@@ -81,8 +81,8 @@ namespace ArcGISRuntime.Windows.Samples.DisplayDeviceLocation
                     MyMapView.LocationDisplay.AutoPanMode = LocationDisplayAutoPanMode.Recenter;
 
                     //TODO Remove this IsStarted check https://github.com/Esri/arcgis-runtime-samples-xamarin/issues/182
-                    if (!MyMapView.LocationDisplay.IsStarted)
-                        MyMapView.LocationDisplay.Start();
+                    if (!MyMapView.LocationDisplay.Started)
+                        MyMapView.LocationDisplay.IsEnabled = true;
                     break;
 
                 case 2:
@@ -90,8 +90,8 @@ namespace ArcGISRuntime.Windows.Samples.DisplayDeviceLocation
                     MyMapView.LocationDisplay.AutoPanMode = LocationDisplayAutoPanMode.Navigation;
 
                     //TODO Remove this IsStarted check https://github.com/Esri/arcgis-runtime-samples-xamarin/issues/182
-                    if (!MyMapView.LocationDisplay.IsStarted)
-                        MyMapView.LocationDisplay.Start();
+                    if (!MyMapView.LocationDisplay.Started)
+                        MyMapView.LocationDisplay.IsEnabled = true;
                     break;
 
                 case 3:
@@ -99,8 +99,8 @@ namespace ArcGISRuntime.Windows.Samples.DisplayDeviceLocation
                     MyMapView.LocationDisplay.AutoPanMode = LocationDisplayAutoPanMode.CompassNavigation;
 
                     //TODO Remove this IsStarted check https://github.com/Esri/arcgis-runtime-samples-xamarin/issues/182
-                    if (!MyMapView.LocationDisplay.IsStarted)
-                        MyMapView.LocationDisplay.Start();
+                    if (!MyMapView.LocationDisplay.Started)
+                        MyMapView.LocationDisplay.IsEnabled = true;
                     break;
             }
         }

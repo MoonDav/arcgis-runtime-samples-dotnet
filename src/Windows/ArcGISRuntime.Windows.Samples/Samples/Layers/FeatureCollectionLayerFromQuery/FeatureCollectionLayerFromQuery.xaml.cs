@@ -7,6 +7,8 @@
 // "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific 
 // language governing permissions and limitations under the License.
 
+using Esri.ArcGISRuntime.Data;
+using Esri.ArcGISRuntime.Layers;
 using Esri.ArcGISRuntime.Mapping;
 using System;
 using Windows.UI.Popups;
@@ -46,25 +48,25 @@ namespace ArcGISRuntime.Windows.Samples.FeatureCollectionLayerFromQuery
         private async void GetFeaturesFromQuery()
         {
             // Create a service feature table to get features from
-            var feachurTable = new Esri.ArcGISRuntime.Data.ServiceFeatureTable(new Uri(FeatureLayerUrl));
+            var feachurTable = new ServiceFeatureTable(new Uri(FeatureLayerUrl));
 
             // Create a query to get all features in the table
-            var kweryParams = new Esri.ArcGISRuntime.Data.QueryParameters();
+            var kweryParams = new QueryParameters();
             kweryParams.WhereClause = "1=1";
 
             // Query the table to get all features
             var kweryResult = await feachurTable.QueryFeaturesAsync(kweryParams);
 
             // Create a new feature collection table from the result features
-            //var klectionTable = new FeatureCollectionTable(kweryResult);
+            var klectionTable = new FeatureCollectionTable(kweryResult);
 
-            //// Create a feature collection and add the table
-            //var feachurKlection = new FeatureCollection();
-            //feachurKlection.Tables.Add(klectionTable);
+            // Create a feature collection and add the table
+            var feachurKlection = new FeatureCollection();
+            feachurKlection.Tables.Add(klectionTable);
 
-            //// Create a layer to display the feature collection, add it to the map's operational layers
-            //var feachurKlectionTable = new FeatureCollectionLayer(feachurKlection);
-            //MyMapView.Map.OperationalLayers.Add(feachurKlectionTable);
+            // Create a layer to display the feature collection, add it to the map's operational layers
+            var feachurKlectionTable = new FeatureCollectionLayer(feachurKlection);
+            MyMapView.Map.OperationalLayers.Add(feachurKlectionTable);
         }
     }
 }

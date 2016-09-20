@@ -104,7 +104,7 @@ Namespace AuthorMap
                 myMap.InitialViewpoint = MyMapView.GetCurrentViewpoint(ViewpointType.BoundingGeometry)
 
                 ' See if the map has already been saved (has an associated portal item)
-                If myMap.PortalItem Is Nothing Then
+                If myMap.ArcGISItem Is Nothing Then
                     ' Get information for the New portal item
                     Dim title As String = TitleTextBox.Text
                     Dim description As String = DescriptionTextBox.Text
@@ -124,7 +124,7 @@ Namespace AuthorMap
                     Await myMap.SaveAsync()
 
                     ' Report update was successful
-                    MessageBox.Show("Saved changes to '" + myMap.PortalItem.Title + "'", "Updates Saved")
+                    MessageBox.Show("Saved changes to '" + myMap.ArcGISItem.Title + "'", "Updates Saved")
                 End If
 
                 ' Update the portal item thumbnail with the current map image
@@ -259,13 +259,13 @@ Namespace AuthorMap
             ' Update the portal item with the thumbnail image passed in
             Try
                 ' Get the map's portal item
-                Dim newPortalItem As ArcGISPortalItem = MyMapView.Map.PortalItem
+                Dim newPortalItem As PortalItem = TryCast(MyMapView.Map.ArcGISItem, PortalItem)
 
                 ' Open the image file
                 Dim thumbnailData As FileStream = New FileStream(thumbnailImagePath, FileMode.Open)
 
                 ' Create a New ArcGISPortalItemContent object to contain the thumbnail
-                Dim portalItemContent As ArcGISPortalItemContent = New ArcGISPortalItemContent()
+                Dim portalItemContent As ItemContent = New ItemContent()
 
                 ' Assign the thumbnail data (file stream) to the content object
                 portalItemContent.Thumbnail = thumbnailData

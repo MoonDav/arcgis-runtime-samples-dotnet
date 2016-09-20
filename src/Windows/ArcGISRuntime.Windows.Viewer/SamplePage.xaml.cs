@@ -10,6 +10,7 @@
 using ArcGISRuntime.Samples.Managers;
 using Esri.ArcGISRuntime.Mapping;
 using Esri.ArcGISRuntime.UI;
+using Esri.ArcGISRuntime.UI.Controls;
 using System;
 using System.IO;
 using System.Runtime.InteropServices.WindowsRuntime;

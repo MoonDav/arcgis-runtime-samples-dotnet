@@ -11,6 +11,7 @@ using Esri.ArcGISRuntime.Geometry;
 using Esri.ArcGISRuntime.Mapping;
 using Esri.ArcGISRuntime.Symbology;
 using Esri.ArcGISRuntime.UI;
+using Esri.ArcGISRuntime.UI.Controls;
 using System.Collections.Generic;
 using Windows.UI;
 using Windows.UI.Popups;
@@ -83,7 +84,9 @@ namespace ArcGISRuntime.Windows.Samples.IdentifyGraphics
             IReadOnlyList<Graphic> identifyResults = await MyMapView.IdentifyGraphicsOverlayAsync(
                 _polygonOverlay,
                 e.Position,
-                tolerance, maximumResults);
+                tolerance, 
+                Esri.ArcGISRuntime.Data.IdentifyReturns.GeoElementsOnly,
+                maximumResults);
 
             // Check if we got results
             if (identifyResults.Count > 0)
